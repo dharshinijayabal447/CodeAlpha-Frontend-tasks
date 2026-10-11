@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f3f4f6">
+  <title>Calcspace</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page">
+    <header class="page-header">
+      <a class="brand" href="#" aria-label="Calcspace home"><span class="brand-icon">÷</span> Calc<span>Space</span></a>
+      
+    </header>
+
+    <section class="intro">
+      <p class="eyebrow reveal">SIMPLE. QUICK. PRECISE.</p>
+      <h1 class="reveal delay-1">Everyday calculations,<br><span>made easy.</span></h1>
+      <p class="intro-text reveal delay-2">A cleaner way to work through the numbers that matter.</p>
+    </section>
+
+    <section class="calculator reveal delay-2" aria-label="Calculator">
+      <div class="calculator-top">
+        <span class="live-dot"></span><span>STANDARD CALCULATOR</span>
+        <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">◐</button>
+      </div>
+      <div class="display" id="displayBox">
+        <div class="expression" id="expression" aria-live="polite">Ready to calculate</div>
+        <div class="result" id="result" aria-live="polite">0</div>
+      </div>
+      <div class="keypad" id="keypad">
+        <button class="key utility" data-action="clear" type="button">AC</button>
+        <button class="key utility" data-action="delete" type="button" aria-label="Delete last digit">⌫</button>
+        <button class="key utility" data-action="percent" type="button">%</button>
+        <button class="key operator" data-operator="÷" type="button">÷</button>
+        <button class="key" data-number="7" type="button">7</button>
+        <button class="key" data-number="8" type="button">8</button>
+        <button class="key" data-number="9" type="button">9</button>
+        <button class="key operator" data-operator="×" type="button">×</button>
+        <button class="key" data-number="4" type="button">4</button>
+        <button class="key" data-number="5" type="button">5</button>
+        <button class="key" data-number="6" type="button">6</button>
+        <button class="key operator" data-operator="−" type="button">−</button>
+        <button class="key" data-number="1" type="button">1</button>
+        <button class="key" data-number="2" type="button">2</button>
+        <button class="key" data-number="3" type="button">3</button>
+        <button class="key operator" data-operator="+" type="button">+</button>
+        <button class="key utility" data-action="sign" type="button">+/−</button>
+        <button class="key" data-number="0" type="button">0</button>
+        <button class="key" data-action="decimal" type="button">.</button>
+        <button class="key equals" data-action="equals" type="button">=</button>
+      </div>
+      <div class="calculator-footer"><span><span class="footer-pulse"></span> Ready when you are</span><span><kbd>Enter</kbd> calculate <span class="footer-dot">·</span> <kbd>Esc</kbd> clear</span></div>
+    </section>
+
+    <section class="history-panel reveal delay-3" aria-label="Calculation history">
+      <div class="history-header">
+        <div><p class="eyebrow">YOUR RECENT WORK</p><h2>Calculation history</h2></div>
+        <button id="clearHistory" class="clear-history" type="button">Clear history</button>
+      </div>
+      <div id="historyList" class="history-list"><p class="empty-history">Your calculations will appear here.</p></div>
+      <p class="history-note">Select any calculation to reuse its result. History is saved in this browser.</p>
+    </section>
+
+    <section class="tips">
+      <div class="tip-item"><span class="tip-number">01</span><div><strong>Type or tap</strong><p>Use the keypad or your keyboard.</p></div></div>
+      <div class="tip-item"><span class="tip-number">02</span><div><strong>Instant feedback</strong><p>Enjoy smooth, responsive interactions.</p></div></div>
+      <div class="tip-item"><span class="tip-number">03</span><div><strong>Look back anytime</strong><p>Reuse a result from your history.</p></div></div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>\n

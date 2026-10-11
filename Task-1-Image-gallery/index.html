@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7f4ee">
+  <title>Stillroom</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Stillroom home">
+      <span class="brand-mark">S</span>
+      <span>stillroom<span class="brand-dot">.</span></span>
+    </a>
+    <div class="topbar-note">A PERSONAL IMAGE ARCHIVE</div>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">◐</button>
+  </header>
+  <main class="page">
+    <section class="intro">
+      <p class="eyebrow">COLLECT · CURATE · REMEMBER</p>
+      <div class="intro-row">
+        <div>
+          <h1>Your eye.<br><em>Your collection.</em></h1>
+          <p class="intro-copy">A quiet place for the images you want to keep close.</p>
+        </div>
+        <div class="collection-count"><span id="totalCount">0</span><small>IMAGES<br>COLLECTED</small></div>
+      </div>
+      <div class="upload-zone" id="dropZone">
+        <div class="upload-symbol">＋</div>
+        <div class="upload-copy">
+          <strong>Add photographs to your collection</strong>
+          <span>Choose images from your device or drag them here</span>
+        </div>
+        <button class="primary-button" id="uploadButton" type="button">Upload images <span>↗</span></button>
+        <input id="fileInput" type="file" accept="image/*" multiple hidden>
+      </div>
+    </section>
+    <section class="gallery-section">
+      <div class="section-heading">
+        <div><p class="eyebrow">THE ARCHIVE</p><h2>Collected moments</h2></div>
+        <label class="search-box">
+          <span>⌕</span>
+          <input id="searchInput" type="search" placeholder="Search your collection..." aria-label="Search images">
+          <kbd>/</kbd>
+        </label>
+      </div>
+      <div class="toolbar">
+        <div class="filters" id="categoryFilters" aria-label="Filter by category">
+          <button class="filter-button active" data-category="All" type="button">All images <span id="allFilterCount">0</span></button>
+          <button class="filter-button" data-category="Favorites" type="button">♡ Favorites <span id="favoriteCount">0</span></button>
+          <button class="filter-button add-category-button" id="addCategoryButton" type="button">＋ Add category</button>
+        </div>
+        <label class="sort-control">SORT BY
+          <select id="sortSelect" aria-label="Sort images">
+            <option value="newest">Recently added</option>
+            <option value="oldest">Oldest first</option>
+            <option value="name">Name A–Z</option>
+          </select>
+        </label>
+      </div>
+      <div class="gallery-grid" id="galleryGrid"></div>
+      <div class="empty-state" id="emptyState">
+        <div class="empty-art"><span></span><span></span><span></span></div>
+        <p class="eyebrow" id="emptyEyebrow">A BLANK CANVAS</p>
+        <h3 id="emptyTitle">Your collection starts here.</h3>
+        <p id="emptyMessage">Upload a few photographs and make this space your own.</p>
+        <button class="text-button" id="emptyUploadButton" type="button">Choose your first images <span>↗</span></button>
+      </div>
+    </section>
+    <footer class="footer"><span>STILLROOM ARCHIVE</span><span>Made to keep the moments that matter.</span></footer>
+  </main>
+  <div class="category-modal" id="categoryModal" aria-hidden="true">
+    <form class="category-dialog" id="categoryForm" role="dialog" aria-modal="true" aria-labelledby="categoryDialogTitle">
+      <div class="category-dialog-top">
+        <div><p class="eyebrow">MAKE IT YOURS</p><h3 id="categoryDialogTitle">Create a category</h3></div>
+        <button class="category-modal-close" id="categoryModalClose" type="button" aria-label="Close dialog">×</button>
+      </div>
+      <p class="category-dialog-copy">Create your own space for anything you collect — food, outfits, pets, travel, art, or whatever you like.</p>
+      <label for="categoryNameInput">CATEGORY NAME</label>
+      <input id="categoryNameInput" type="text" maxlength="32" placeholder="e.g. Food, Dresses, Travel" autocomplete="off" required>
+      <div class="category-dialog-actions">
+        <button class="category-cancel" id="categoryModalCancel" type="button">Cancel</button>
+        <button class="category-save" type="submit">Create category ↗</button>
+      </div>
+    </form>
+  </div>
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close image">×</button>
+    <button class="lightbox-arrow previous" id="previousImage" type="button" aria-label="Previous image">‹</button>
+    <div class="lightbox-content">
+      <img id="lightboxImage" src="" alt="">
+      <div class="lightbox-caption">
+        <div><p class="eyebrow" id="lightboxCategory"></p><h3 id="lightboxTitle"></h3></div>
+        <div class="lightbox-actions">
+          <button id="lightboxFavorite" class="icon-button" type="button" aria-label="Toggle favorite">♡</button>
+          <button id="lightboxDownload" class="outline-button" type="button">Download ↓</button>
+        </div>
+      </div>
+    </div>
+    <button class="lightbox-arrow next" id="nextImage" type="button" aria-label="Next image">›</button>
+    <div class="lightbox-counter" id="lightboxCounter">1 / 1</div>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>

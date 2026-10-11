@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Melody</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="app">
+    <header class="navbar">
+      <h2>♫ Melody<span>.</span></h2>
+      <p>YOUR PERSONAL MUSIC SPACE</p>
+      <button id="themeButton" aria-label="Toggle dark mode">☾</button>
+    </header>
+
+    <section class="hero">
+      <div>
+        <p class="eyebrow">MUSIC FOR EVERY MOMENT</p>
+        <h1>Find your<br><em>own rhythm.</em></h1>
+        <p class="subtitle">Your songs. Your mood. Your moment.</p>
+      </div>
+      <div class="hero-disc">♫</div>
+    </section>
+
+    <main class="layout">
+      <section class="player card">
+        <p class="section-label">NOW PLAYING</p>
+
+        <img
+          id="coverImage"
+          class="cover"
+          src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=800&q=80"
+          alt="Album cover"
+        >
+
+        <div class="song-details">
+          <div>
+            <h2 id="songTitle">Midnight City</h2>
+            <p id="songArtist">Demo Artist</p>
+          </div>
+          <button id="favoriteButton" class="favorite" aria-label="Toggle favorite">♡</button>
+        </div>
+
+        <audio id="audio"></audio>
+
+        <input id="progressBar" type="range" min="0" max="100" value="0">
+        <div class="time-row">
+          <span id="currentTime">0:00</span>
+          <span id="duration">0:00</span>
+        </div>
+
+        <div class="controls">
+          <button id="shuffleButton" title="Shuffle" aria-label="Shuffle">⤨</button>
+          <button id="previousButton" title="Previous" aria-label="Previous song">|◀</button>
+          <button id="playButton" class="play-button" aria-label="Play">▶</button>
+          <button id="nextButton" title="Next" aria-label="Next song">▶|</button>
+          <button id="repeatButton" title="Repeat current song" aria-label="Repeat">↻</button>
+        </div>
+
+        <div class="volume-row">
+          <span>VOLUME</span>
+          <input id="volumeBar" type="range" min="0" max="1" step="0.01" value="0.7">
+          <span id="volumeValue">70%</span>
+        </div>
+      </section>
+
+      <section class="playlist card">
+        <div class="playlist-heading">
+          <div>
+            <p class="section-label">YOUR COLLECTION</p>
+            <h2>Playlist <span id="trackCount">0</span></h2>
+          </div>
+          <button id="addSongButton" class="add-button" title="Add songs">+</button>
+          <input id="songFiles" type="file" accept="audio/*" multiple hidden>
+        </div>
+
+        <input
+          id="searchInput"
+          class="search"
+          type="search"
+          placeholder="Search songs or artists..."
+          aria-label="Search playlist"
+        >
+
+        <div id="playlistList" class="playlist-list"></div>
+
+        <div class="playlist-footer">
+          <span>♫ YOUR MUSIC, YOUR WAY</span>
+          <button id="autoplayButton" class="toggle active">
+            <span class="toggle-dot"></span> AUTOPLAY
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>MADE FOR THE MOMENTS IN BETWEEN.</span>
+      <span>MELODY PLAYER © 2026</span>
+    </footer>
+  </div>
+
+  <div id="toast" class="toast" role="status"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
